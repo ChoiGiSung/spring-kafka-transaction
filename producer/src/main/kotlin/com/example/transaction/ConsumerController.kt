@@ -11,7 +11,7 @@ class ConsumerController(
     fun consume(user: User) {
         when (user) {
             is UserInfo -> println("user: $user")
-            is OtherUserInfo -> println("other user: $user")
+            is OtherUserInfo -> throw RuntimeException("Exception!")
         }
     }
 

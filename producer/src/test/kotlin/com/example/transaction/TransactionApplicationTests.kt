@@ -10,13 +10,27 @@ class TransactionApplicationTests {
 	@Autowired
 	lateinit var producer: CustomProducer
 
+	// [error, success] -> 0 lag
 	@Test
-	fun something() {
-		producer.send(CustomProducer.UserInfo("홍길동", "010-1234-5678", "홍홍"))
+	fun errorFirst() {
+		producer.send(CustomProducer.OtherUserInfo("name2", 12))
+		producer.send(CustomProducer.UserInfo("name1", "010-1234-5678", "demo"))
+	}
+
+	// [success, error] -> 1 lag
+	@Test
+	fun errorSecond() {
+		producer.send(CustomProducer.UserInfo("name1", "010-1234-5678", "demo"))
+		producer.send(CustomProducer.OtherUserInfo("홍길동", 12))
 	}
 
 	@Test
-	fun something2() {
+	fun success() {
+		producer.send(CustomProducer.UserInfo("name1", "010-1234-5678", "demo"))
+	}
+
+	@Test
+	fun fail() {
 		producer.send(CustomProducer.OtherUserInfo("홍길동", 12))
 	}
 

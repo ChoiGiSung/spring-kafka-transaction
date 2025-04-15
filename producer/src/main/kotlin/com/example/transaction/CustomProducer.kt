@@ -12,7 +12,6 @@ class CustomProducer(
     @Transactional
     fun send(userInfo: UserInfo) {
         kafkaTemplate.send("testTopic", userInfo)
-        throw RuntimeException("Exception!")
     }
 
     @Transactional
