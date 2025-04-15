@@ -12,4 +12,4 @@ or you can publish message.
 success, fail
 
 ps.  
-"Messages behind always stays at 1, but I don’t understand why."
+Messages behind always stays at 1, but I don’t understand why.
