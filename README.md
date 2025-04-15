@@ -7,6 +7,6 @@
 5. chose consumers tab. and you can see messages behind
 6. run application Test Code 
 * errorFirst: error first, success second -> messages behind is 0
-* errorSecond: success first, error second -> messages behind is 1
+* errorSecond: success first, error second -> messages behind is 1  
 or you can publish message.
 success, fail
