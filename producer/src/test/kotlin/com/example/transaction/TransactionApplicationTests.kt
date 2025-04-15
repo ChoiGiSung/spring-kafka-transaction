@@ -17,7 +17,7 @@ class TransactionApplicationTests {
 		producer.send(CustomProducer.UserInfo("name1", "010-1234-5678", "demo"))
 	}
 
-	// [success, error] -> 1 lag
+	// [success, error] -> 2 lag
 	@Test
 	fun errorSecond() {
 		producer.send(CustomProducer.UserInfo("name1", "010-1234-5678", "demo"))

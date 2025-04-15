@@ -1,10 +1,12 @@
-# spring-kafka-transaction
+# How to run
 
-
-If producer is a transaction producer, consumer needs to modify the isolation level.  
-read_committed means that it will read only committed messages, and read_uncommitted means that it will also read uncommitted messages.  
-
-Read_committed increases lag because it does not read uncommitted messages.  
-This may be considered an error.  
-You can respond to this with fixTxOffets on the container.  
-This setting initializes increased lag due to previous uncommitted messages when reading committed messages.  
+1. cd docker
+2. docker-compose up -d
+3. run [TransactionApplication.kt](producer%2Fsrc%2Fmain%2Fkotlin%2Fcom%2Fexample%2Ftransaction%2FTransactionApplication.kt)
+4. visit localhost:10000 and search 'testTopic'
+5. chose consumers tab. and you can see messages behind
+6. run application Test Code 
+* errorFirst: error first, success second -> messages behind is 0
+* errorSecond: success first, error second -> messages behind is 1
+or you can publish message.
+success, fail
